@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "8000:80"
+      - "443:443"
+    restart: always
+    container_name: nginx
