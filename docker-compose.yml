@@ -1,0 +1,33 @@
+
+version: '3'
+
+services:
+  app:
+    container_name : "python-webcam"
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
+    restart: always
+
+  nginx:
+    container_name: "nginx-hello"
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certificate.crt:/etc/nginx/certificate.crt
+      - ./private.key:/etc/nginx/private.key
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    networks:
+      - mynetwork
+    restart: always
+
+networks:
+  mynetwork:
+
