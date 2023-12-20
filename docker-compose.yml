@@ -15,6 +15,7 @@ services:
     container_name: "nginx-hello"
     image: nginx:latest
     volumes:
+      - ./public/index.html/:/var/www/html/public/index.html
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./certificate.crt:/etc/nginx/certificate.crt
       - ./private.key:/etc/nginx/private.key
@@ -29,4 +30,4 @@ services:
 
 networks:
   mynetwork:
-
+    driver: bridge
