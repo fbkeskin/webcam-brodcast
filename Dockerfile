@@ -4,6 +4,10 @@
 # Use the official Nginx base image
 FROM nginx:latest
 
+RUN apt-get update -y && apt-get install -y openssl
+
+RUN openssl req -x509 -newkey rsa:4096 -subj /C=TR -nodes -keyout /etc/ssl/makbulut.42.fr.key -out /etc/ssl/makbulut.42.fr.crt
+
 # Remove the default Nginx welcome page
 RUN rm -rf /usr/share/nginx/html/*
 
