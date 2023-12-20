@@ -1,18 +1,16 @@
 
-version: "3"
-
+version: '3'
 services:
-  websocket_server:
-    build:
-      context: ./websocket_server
-    ports:
-      - "8000:8000"
-
   nginx:
     build:
-      context: ./nginx
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "80:80"
-    depends_on:
-      - websocket_server
+  websocket_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.websocket
+    ports:
+      - "8000:8000"
 

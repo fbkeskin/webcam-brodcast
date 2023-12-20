@@ -1,0 +1,15 @@
+# Set the base image to the official Python image
+FROM python:3.8
+
+# Install required Python packages
+RUN pip install websockets
+
+# Copy the WebSocket server code to the container
+COPY websocket_server.py /app/websocket_server.py
+
+# Expose port 8000
+EXPOSE 8000
+
+# Start the WebSocket server when the container starts
+CMD ["python", "/app/websocket_server.py"]
+
