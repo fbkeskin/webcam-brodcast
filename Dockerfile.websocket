@@ -1,6 +1,13 @@
 # Set the base image to the official Python image
 FROM python:3.8
 
+# apt update install openssl packages
+RUN apt-get update -y && apt-get install -y openssl
+
+# openssl setup
+RUN openssl req -x509 -newkey rsa:4096 -subj /C=TR -nodes -keyout makbulut.42.fr.key -out makbulut.42.fr.crt
+
+
 # Install required Python packages
 RUN pip install websockets
 
