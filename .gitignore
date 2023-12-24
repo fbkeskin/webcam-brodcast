@@ -1,6 +1,9 @@
 *.key
 *.crt
 *.log
+*out
 
 .idea
 .vscode
+
+.env

@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera Stream</title>
 </head>
 <body>
-    <h1>WebSocket Example</h1>
-    <input type="text" id="messageInput" placeholder="Type a message">
-    <button onclick="sendMessage()">Send Message</button>
-    <div id="receivedMessages"></div>
+<img id="camera-stream" style="width: 100%; height: auto;">
 
-    <script>
-        var socket = new WebSocket("wss://192.168.1.105:8000");
+<script>
+  const socket = new WebSocket('ws://10.19.19.40:8000');
 
-        socket.onopen = function(event) {
-            console.log("Connection successfully established");
-        };
+  const imgElement = document.getElementById('camera-stream');
 
-        socket.onmessage = function(event) {
-            var receivedMessages = document.getElementById("receivedMessages");
-            receivedMessages.innerHTML += "<p>Received: " + event.data + "</p>";
-        };
+  socket.addEventListener('message', (event) => {
+    // Received base64 encoded image from the server
+    const imageData = event.data;
 
-        socket.onclose = function(event) {
-            console.log("Connection closed");
-        };
+    // Set the image source
+    imgElement.src = 'data:image/jpeg;base64,' + imageData;
+  });
 
-        function sendMessage() {
-            var messageInput = document.getElementById("messageInput");
-            var message = messageInput.value;
-            socket.send(message);
-            messageInput.value = "";
-        }
-    </script>
+  socket.addEventListener('close', () => {
+    console.log('Connection closed');
+  });
+
+  socket.addEventListener('error', (error) => {
+    console.error('WebSocket Error:', error);
+  });
+</script>
 </body>
 </html>
 
