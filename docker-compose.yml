@@ -11,6 +11,7 @@ services:
     networks:
       - mynetwork
     restart: always
+    # env_file: .env
 
   # websocket_server:
   #   build:

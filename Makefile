@@ -1,5 +1,3 @@
-
-
 DOCKER=sudo docker
 CONTAINER_COUNT := $(shell $(DOCKER)-compose ps -q | wc -l  | tr -d ' ')
 
