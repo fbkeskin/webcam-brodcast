@@ -8,8 +8,8 @@ services:
         IP: ${IP}
         WEBSOCK_PORT: ${WEBSOCK_PORT}
     ports:
-      - "8080:80"
-      - "8001:8000"
+      - "${NGINX_PORT}:80"
+      - "8001:${WEBSOCK_PORT}"
     networks:
       - mynetwork
     restart: always

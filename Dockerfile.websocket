@@ -4,9 +4,6 @@ FROM python:3.8
 # Update package lists and install OpenSSL packages
 RUN apt-get update -y && apt-get install -y openssl
 
-# Set up OpenSSL for creating a self-signed certificate
-RUN openssl req -x509 -newkey rsa:4096 -subj /C=TR -nodes -keyout makbulut.42.fr.key -out makbulut.42.fr.crt
-
 # Install required Python packages, in this case, 'websockets'
 RUN pip install websockets
 
