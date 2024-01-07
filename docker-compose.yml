@@ -1,17 +1,19 @@
-
 version: '3'
 services:
   nginx:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        IP: ${IP}
+        WEBSOCK_PORT: ${WEBSOCK_PORT}
     ports:
       - "8080:80"
       - "8001:8000"
     networks:
       - mynetwork
     restart: always
-    # env_file: .env
+    env_file: .env
 
   # websocket_server:
   #   build:

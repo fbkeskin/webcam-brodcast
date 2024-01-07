@@ -13,7 +13,7 @@ OK_ICON := ✔️
 all:
 ifeq ($(CONTAINER_COUNT), 0)
 	@echo "$(GREEN)No containers found. Starting containers...$(NC)"
-	@$(DOCKER)-compose up --build -d
+	@$(DOCKER)-compose --env-file .env up  --build -d
 	@echo "$(OK_ICON) Containers are up and running.$(NC)"
 else
 	@echo "$(OK_ICON) Containers are already running.$(NC)"

@@ -1,5 +1,5 @@
 // Create a WebSocket connection. Specify the server address and port.
-const socket = new WebSocket('ws://192.168.1.140:8000');
+const socket = new WebSocket('ws://${IP}:${WEBSOCK_PORT}');
 
 // Select the img element on the HTML page to display the camera stream.
 const imgElement = document.getElementById('camera-stream');
