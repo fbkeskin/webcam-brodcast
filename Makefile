@@ -19,8 +19,14 @@ else
 	@echo "$(OK_ICON) Containers are already running.$(NC)"
 endif
 	@echo "$(GREEN)Starting WebSocket server...$(NC)"
-	@nohup /opt/homebrew/bin/python3 websocket_server.py &
+	@nohup $(shell which python3) websocket_server.py &
 	@echo "$(OK_ICON) WebSocket server is running.$(NC)"
+
+pipi:
+	pip3 install -r requirements.txt
+
+pipu:
+	pip3 uninstall -r requirements.txt
 
 rm:
 	@echo "$(RED)$(GARBAGE_ICON) Stopping and removing containers...$(NC)"
