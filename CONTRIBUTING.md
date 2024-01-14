@@ -1,6 +1,6 @@
 # Contributing to Webcam Broadcast
 
-[**Türkçe**](https://github.com/makbulut1/webcam-brodcast/docs/CONTRIBUTING.tr.md) | [**English**](https://github.com/makbulut1/webcam-brodcast/docs/CONTRIBUTING.en.md)
+[**Türkçe**](https://github.com/makbulut1/webcam-brodcast/blob/main/docs/CONTRIBUTING.tr.md) | [**English**](https://github.com/makbulut1/webcam-brodcast/blob/main/docs/CONTRIBUTING.en.md)
 
 Hello! Thank you for wanting to contribute to our project. Below, you can find information about the contribution process and rules for our project.
 
