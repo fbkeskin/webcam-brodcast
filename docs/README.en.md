@@ -1,7 +1,5 @@
 # Webcam Broadcast
 
-[**Türkçe**](https://github.com/makbulut1/webcam-brodcast/docs/README.tr.md) | [**English**](https://github.com/makbulut1/webcam-brodcast/docs/README.en.md)
-
 This project is a system used for broadcasting webcam images.
 
 ## Getting Started
