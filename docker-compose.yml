@@ -15,17 +15,6 @@ services:
     restart: always
     env_file: .env
 
-  # websocket_server:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.websocket
-  #   ports:
-  #     - "8000:8000"
-  #   networks:
-  #     - mynetwork
-  #   restart: always
-
-
 networks:
   mynetwork:
     driver: bridge
